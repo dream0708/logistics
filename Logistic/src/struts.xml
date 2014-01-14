@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+ <package name="Logistic" extends="struts-default">
+
+ </package>
+ 
+ <package name="json" extends="json-default">
+ 		<action name="ShowVehiclesIdAction" class="com.Logistic.action.ShowVehiclesIdAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+
+		<action name="ViewElectResults" class="com.Logistic.action.ViewElectResultsAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+
+ </package>
+ 
+ 
+	<!-- <package name="onlineSurvey" extends="struts-default">
+			定义downloadFile的Action
+        <action name="downloadFile" class="com.onlineSurvey.action.DownloadAction"> 
+            <param name="filePath">/download/userInfo.xls</param>
+	        <result name="success" type="stream">
+	            <param name="inputName">download</param>
+	            <param name="contentType">application/vnd.ms-excel</param>
+	            <param name="contentDisposition">filename="userInfo.xls"</param>
+	        </result>
+	    </action>
+		<action name="alterMyInfo" class="com.onlineSurvey.action.AlterMyInfoAction">
+			<result name="success">/pages/student/alterMyInfoSuc.jsp</result>					
+			<result name="fail">/pages/student/failResult.jsp</result>					
+		</action>
+		<action name="alertClass" class="com.onlineSurvey.action.AlertClassAction">
+			<result name="success">/pages/admin/alterClass.jsp</result>					
+		</action>
+		<action name="alterCourse" class="com.onlineSurvey.action.AlterCourseAction">
+			<result name="success">/pages/admin/alterCourse.jsp</result>					
+		</action>		
+		<action name="doneAlertClassAction" class="com.onlineSurvey.action.DoneAlertClassAction" >
+			<result name="success">/pages/admin/success.html</result>
+			<result name="input">/pages/admin/fail.jsp</result>
+	    </action>
+		<action name="doneAlterCourse" class="com.onlineSurvey.action.DoneAlterCourseAction" >
+			<result name="success">/pages/admin/success.html</result>
+			<result name="fail">/pages/admin/fail.jsp</result>
+		</action>
+		
+		<action name="login" class="com.onlineSurvey.action.LoginAction">
+			<result name="boss">/pages/boss/welcome.jsp</result>
+			<result name="admin">/pages/admin/welcome.jsp</result>
+			<result name="student">/pages/student/welcome.jsp</result>
+			<result name="teacher">/pages/teacher/welcome.jsp</result>
+			<result name="fail">/fail.jsp</result>			
+		</action>
+		
+	    <action name="submitSurvey" class="com.onlineSurvey.action.SubmitSurveyAction">
+			<result name="success">submitSurveySuc.jsp</result>
+			<result name="fail">/pages/student/fail.jsp</result>
+		</action>
+		<action name="goImport" class="com.onlineSurvey.action.GoImportAction">
+			<result name="admin">/pages/admin/import.jsp</result>
+			<result name="teacher">/pages/teacher/import.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		<action name="goImportQuestionnaire" class="com.onlineSurvey.action.GoImportQuestionnaireAction">
+			<result name="admin">/pages/admin/importQuestionnaire.jsp</result>
+			<result name="teacher">/pages/teacher/importQuestionnaire.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		<action name="goAddQuestionnaire" class="com.onlineSurvey.action.GoAddQuestionnaireAction">
+			<result name="admin">/pages/admin/addQuestionnaire.jsp</result>
+			<result name="teacher">/pages/teacher/addQuestionnaire.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+			<action name="goExportExcel" class="com.onlineSurvey.action.GoExportExcelAction">
+			<result name="admin">/pages/admin/viewExportExcel.jsp</result>
+			<result name="teacher">/pages/teacher/viewExportExcel.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		<action name="import" class="com.onlineSurvey.action.ImportAction">
+			<result name="admin">/pages/admin/importSuccess.jsp</result>
+			<result name="teacher">/pages/teacher/importSuccess.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		<action name="importQuestionnaire" class="com.onlineSurvey.action.ImportQuestionnaireAction">
+			<result name="admin">/pages/admin/importQSuccess.jsp</result>
+			<result name="teacher">/pages/teacher/importQSuccess.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		<action name="addQuestionnaire" class="com.onlineSurvey.action.AddQuestionnaireAction">			
+			<result name="admin">/pages/admin/addQuestion.jsp</result>
+			<result name="teacher">/pages/teacher/addQuestion.jsp</result>
+			<result name="fail">/fail.jsp</result>			
+		</action>
+		<action name="addQuestion" class="com.onlineSurvey.action.AddQuestionAction">
+			<result name="admin">/pages/admin/addQuestion.jsp</result>
+			<result name="teacher">/pages/teacher/addQuestion.jsp</result>
+			<result name="fail">/fail.jsp</result>			
+		</action>
+		<action name="backToMainT" class="com.onlineSurvey.action.BackToMainTAction">
+			<result name="success">/pages/teacher/welcome.html</result>
+			<result name="fail">/fail.jsp</result>			
+		</action>
+		<action name="backToMainS" class="com.onlineSurvey.action.BackToMainSAction">
+			<result name="success">/pages/student/welcome.jsp</result>
+			<result name="fail">/fail.jsp</result>			
+		</action>
+		<action name="backToMainA" class="com.onlineSurvey.action.BackToMainAAction">
+			<result name="success">/pages/admin/test.jsp</result>
+			<result name="fail">/fail.jsp</result>			
+		</action>
+		<action name="backToMain" class="com.onlineSurvey.action.BackToMainAction">
+			<result name="admin">/pages/admin/welcome.html</result>
+			<result name="teacher">/pages/teacher/welcome.html</result>
+			<result name="fail">/index.html</result>			
+		</action>
+		<action name="goShowResult" class="com.onlineSurvey.action.GoShowResultAction">
+			<result name="admin">/pages/admin/showResult.jsp</result>
+			<result name="teacher">/pages/teacher/showResult.jsp</result>
+			<result name="fail">/fail.jsp</result>			
+		</action>
+		<action name="goShowCourse" class="com.onlineSurvey.action.GoShowCourseAction">
+			<result name="success">/pages/student/showCourse.jsp</result>
+			<result name="fail">/fail.jsp</result>			
+		</action>
+		<action name="logout" class="com.onlineSurvey.action.LogoutAction">
+			<result name="success" type="redirect">/index.jsp</result>					
+		</action>
+		
+		<action name="goEdit" class="com.onlineSurvey.action.GoEditAction">
+			<result name="admin">/pages/admin/edit.jsp</result>					
+			<result name="teacher">/pages/teacher/edit.jsp</result>
+			<result name="fail">/fail.jsp</result>					
+		</action>
+		<action name="goViewMembers" class="com.onlineSurvey.action.GoViewMembersAction">
+			<result name="success">/pages/teacher/viewMembers.jsp</result>					
+		</action>
+		<action name="modify" class="com.onlineSurvey.action.ModifyAction">
+			<result name="admin">/pages/admin/modify.jsp</result>					
+			<result name="teacher">/pages/teacher/modify.jsp</result>					
+			<result name="fail">/fail.jsp</result>					
+		</action>
+		<action name="modifySubmit" class="com.onlineSurvey.action.ModifySubmitAction">
+			<result name="admin">/pages/admin/modifySuc.html</result>					
+			<result name="teacher">/pages/teacher/success.html</result>					
+			<result name="fail">/fail.jsp</result>					
+		</action>			
+		<action name="goAddClass" class="com.onlineSurvey.action.GoAddClassAction">
+			<result name="success">/pages/admin/addClass.jsp</result>
+		</action>
+		<action name="goAddCourse" class="com.onlineSurvey.action.GoAddCourseAction">
+			<result name="success">/pages/admin/addCourse.jsp</result>
+		</action>
+		<action name="addClass" class="com.onlineSurvey.action.AddClassAction">
+			<result name="success">/pages/admin/addClassSuc.jsp</result>
+			<result name="fail">/pages/admin/fail.jsp</result>
+		</action>
+		<action name="goAnswer" class="com.onlineSurvey.action.GoAnswerAction">
+			<result name="success">/pages/student/showClass.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		<action name="goShowQByClass" class="com.onlineSurvey.action.GoShowQByClassAction">
+			<result name="success">/pages/student/showQuestionnaire.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		<action name="goShowWDResult" class="com.onlineSurvey.action.GoShowWDResultAction">
+			<result name="admin">/pages/admin/showWDResult.jsp</result>
+			<result name="teacher">/pages/teacher/showWDResult.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		<action name="goShowAnswerResult" class="com.onlineSurvey.action.GoShowAnswerResultAction">
+			<result name="admin">/pages/admin/showAnswerResult.jsp</result>
+			<result name="teacher">/pages/teacher/showAnswerResult.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		<action name="deleteQuestion" class="com.onlineSurvey.action.DeleteQuestionAction">
+			<result name="admin">/pages/admin/success.html</result>
+			<result name="teacher">/pages/teacher/success.html</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		<action name="previewQuestionnaire" class="com.onlineSurvey.action.PreviewQuestionnaireAction">
+			<result name="admin">/pages/admin/previewQuestionnaire.jsp</result>
+			<result name="teacher">/pages/teacher/previewQuestionnaire.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		<action name="exportQuestionnaire" class="com.onlineSurvey.action.ExportQuestionnaireAction">  
+           <result name="success" type="stream">  
+               <param name="contentType">application/vnd.ms-word</param>  
+               <param name="contentDisposition">attachment;fileName="${fileName}"</param>  
+               <param name="inputName">exportFile</param>  
+               <param name="bufferSize">4096</param>  
+           </result>  
+       </action>
+       <action name="test" class="com.onlineSurvey.action.TestAction">  
+           <result name="success" type="stream">  
+               <param name="contentType">application/vnd.ms-excel</param>  
+               <param name="contentDisposition">attachment;fileName="${fileName}"</param>  
+               <param name="inputName">exportFile</param>  
+               <param name="bufferSize">4096</param>  
+           </result>  
+       </action>
+       <action name="exportExcel" class="com.onlineSurvey.action.ExportExcelAction">  
+           <result name="success" type="stream">  
+               <param name="contentType">application/vnd.ms-excel</param>  
+               <param name="contentDisposition">attachment;fileName="${fileName}"</param>  
+               <param name="inputName">exportFile</param>  
+               <param name="bufferSize">4096</param>  
+           </result>  
+       </action>
+       <action name="addCourse" class="com.onlineSurvey.action.AddCourseAction">
+			<result name="admin">/pages/admin/addCourseSuc.jsp</result>
+			<result name="teacher">/pages/teacher/addCourseSuc.jsp</result>
+			<result name="fail">/fail.jsp</result>
+	  </action>
+	  <action name="goAlterPasswd" class="com.onlineSurvey.action.GoAlterPasswdAction">
+	        <result name="boss">/pages/boss/alterPasswd.jsp</result>
+	        <result name="admin">/pages/admin/alterPasswd.jsp</result>
+            <result name="teacher">/pages/teacher/alterPasswd.jsp</result>
+            <result name="student">/pages/student/alterPasswd.jsp</result>
+			<result name="fail">/fail.jsp</result>
+	  </action>
+	   <action name="goAlterInfo" class="com.onlineSurvey.action.GoAlterInfoAction">
+	        <result name="student">/pages/student/alterInfo.jsp</result>
+	        <result name="teacher">/pages/teacher/alterInfo.jsp</result>
+			<result name="fail">/fail.jsp</result>
+	  </action>
+	  <action name="alterPasswd" class="com.onlineSurvey.action.AlterPasswdAction">
+            <result name="boss">/pages/boss/alterSuccess.jsp</result>
+            <result name="teacher">/pages/teacher/alterSuccess.jsp</result>
+            <result name="admin">/pages/teacher/alterSuccess.jsp</result>
+            <result name="student">/pages/student/alterSuccess.jsp</result>
+			<result name="fail">/fail.jsp</result>
+	  </action>
+
+	  <action name="goReset" class="com.onlineSurvey.action.GoResetAction">
+            <result name="success">/pages/admin/reset.jsp</result>
+			<result name="fail">/fail.jsp</result>
+	  </action>
+	  <action name="goEmptyDatabase" class="com.onlineSurvey.action.GoEmptyDatabaseAction">
+            <result name="success">/pages/boss/emptyDatabase.jsp</result>
+			<result name="fail">/fail.jsp</result>
+	  </action>
+	  
+	   <action name="resetPasswd" class="com.onlineSurvey.action.ResetPasswdAction">
+            <result name="success">/pages/admin/success.html</result>
+			<result name="fail">/fail.jsp</result>
+	  </action>
+	  <action name="goModify" class="com.onlineSurvey.action.GoModifyAction">
+            <result name="success">/pages/admin/modifyUserInfo.jsp</result>
+			<result name="fail">/fail.jsp</result>
+	  </action>
+	  <action name="modifyUserInfo" class="com.onlineSurvey.action.ModifyUserInfoAction">
+            <result name="success">/pages/admin/success.html</result>
+			<result name="fail">/fail.jsp</result>
+	  </action>
+	  <action name="manageClassInfo" class="com.onlineSurvey.action.ManageClassInfoAction">
+            <result name="success">/pages/admin/manageClassInfo.jsp</result>
+			<result name="fail">/fail.jsp</result>
+	  </action>
+	    <action name="manageCourseInfo" class="com.onlineSurvey.action.ManageCourseInfoAction">
+            <result name="success">/pages/admin/manageCourseInfo.jsp</result>
+			<result name="fail">/fail.jsp</result>
+	  </action>
+	  <action name="goExportQuestionnaire" class="com.onlineSurvey.action.GoExportQuestionnaireAction">
+            <result name="success">/pages/admin/exportQuestionnaire.jsp</result>
+			<result name="fail">/fail.jsp</result>
+	  </action>
+	  <action name="goExportResult" class="com.onlineSurvey.action.GoExportResultAction">
+            <result name="success">/pages/admin/exportResult.jsp</result>
+			<result name="fail">/fail.jsp</result>
+	  </action>
+	  <action name="goImportTeachers" class="com.onlineSurvey.action.GoImportTeachersAction">
+            <result name="success">/pages/admin/importTeachers.jsp</result>           
+			<result name="fail">/fail.jsp</result>
+	  </action>
+	  <action name="goImportAdmin" class="com.onlineSurvey.action.GoImportAdminAction">
+            <result name="success">/pages/boss/importAdmin.jsp</result>           
+			<result name="fail">/fail.jsp</result>
+	  </action>
+	   <action name="goAlterAdminInfo" class="com.onlineSurvey.action.GoAlterAdminInfoAction">
+            <result name="success">/pages/boss/alterAdminInfo.jsp</result>           
+			<result name="fail">/fail.jsp</result>
+	  </action>
+	  <action name="importTeachers" class="com.onlineSurvey.action.ImportTeachersAction">
+            <result name="success">/pages/admin/importTSuc.jsp</result>           
+			<result name="fail">/fail.jsp</result>
+	  </action>
+	  <action name="importAdmin" class="com.onlineSurvey.action.ImportAdminAction">
+            <result name="success">/pages/boss/importASuc.jsp</result>           
+			<result name="fail">/fail.jsp</result>
+	  </action>
+	  <action name="showQuestionsByQNameActions" class="com.onlineSurvey.action.ShowQuestionsByQNameAction">
+			<result name="success">/pages/admin/previewQuestion.jsp</result>
+	  </action>
+	  <action name="showQuestionsByQNameAndID" class="com.onlineSurvey.action.ShowQuestionsByQNameAndIDAction">
+			<result name="success">/pages/admin/previewQuestion.jsp</result>
+	  </action>
+     <action name="showQuestionsByQIDs" class="com.onlineSurvey.action.ShowQuestionsByQIDAction">
+     <result name="success">/pages/student/questions.jsp</result>
+	 </action> 
+     <action name="showTeacherAction" class="com.onlineSurvey.action.ShowTeachersAction">
+			<result name="success">/pages/admin/teacherInfos.jsp</result>
+			<result name="fail">/pages/admin/noStudent.jsp</result>
+	  </action> 
+	  <action name="showTeacherActions" class="com.onlineSurvey.action.ShowTeachersAction" >
+			<result name="success">/pages/admin/studentInfos.jsp</result>
+			<result name="fail">/pages/admin/noStudent.jsp</result>
+	  </action>
+	  <action name="previewBackAction" class="com.onlineSurvey.action.PreviewBackAction">
+			<result name="success">/pages/admin/addQuestion.jsp</result>
+	 </action>
+	 <action name="viewMemberAction" class="com.onlineSurvey.action.ViewMembersAction" >
+			<result name="success">/pages/admin/showStudentsInfo.jsp</result>
+			<result name="fail">/pages/admin/noStudent.jsp</result>
+	</action>
+	<action name="doneAlertClassAction" class="com.onlineSurvey.action.DoneAlertClassAction" >
+			<result name="success">/pages/admin/success.html</result>
+			<result name="fail">/pages/admin/fail.jsp</result>
+	</action>
+	<action name="emptyDatabase" class="com.onlineSurvey.action.EmptyDatabaseAction" >
+			<result name="success">/pages/boss/emptyDatabaseSuc.jsp</result>
+			<result name="fail">/pages/boss/fail.jsp</result>
+	</action>	
+	<action name="selectQuestionnaireInfo" class="com.onlineSurvey.action.SelectQuestionnaireInfoAction">
+			<result name="success">/pages/admin/selectQuestionnaireInfo.jsp</result>
+	</action>
+	<action name="copyQuestionnaireInfo" class="com.onlineSurvey.action.CopyQuestionnaireInfoAction">
+			<result name="success">/pages/admin/copyQuestionnaireSuc.jsp</result>
+	</action>
+	<action name="goHelp" class="com.onlineSurvey.action.GoHelpAction">
+		<result name="success">/pages/goHelp.jsp</result>	       
+	</action>	
+</package>
+	
+	
+	
+	<package name="json" extends="json-default">
+	
+		<action name="showQuestions" class="com.onlineSurvey.action.ShowQuestionsAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showQuestionsForT" class="com.onlineSurvey.action.ShowQuestionsForTAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>		
+		<action name="getDXResult" class="com.onlineSurvey.action.GetDXResultAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="getDuoXResult" class="com.onlineSurvey.action.GetDuoXResultAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="getWDResult" class="com.onlineSurvey.action.GetWDResultAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showCourseInfo" class="com.onlineSurvey.action.ShowCourseInfoAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showTeacher" class="com.onlineSurvey.action.ShowTeacherAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showQuestionnaire" class="com.onlineSurvey.action.ShowQuestionnaireAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showQuestionnaireByT" class="com.onlineSurvey.action.ShowQuestionnaireByTAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showClassByS" class="com.onlineSurvey.action.ShowClassBySAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>		
+		<action name="showClassByTeacher" class="com.onlineSurvey.action.ShowClassByTeacherAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showClassByTeacherID" class="com.onlineSurvey.action.ShowClassByTeacherIDAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="deleteQuestion" class="com.onlineSurvey.action.DeleteQuestionAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="getQuestionInfo" class="com.onlineSurvey.action.GetQuestionInfoAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="viewMembers" class="com.onlineSurvey.action.ViewMembersAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="viewClasses" class="com.onlineSurvey.action.ViewClassesAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="checkQuestionnaireName" class="com.onlineSurvey.action.CheckQuestionnaireNameAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="checkClassName" class="com.onlineSurvey.action.CheckClassNameAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showQuestionnaireByClass" class="com.onlineSurvey.action.ShowQuestionnaireByClassAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showQuestionsByQID" class="com.onlineSurvey.action.ShowQuestionsByQIDAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showQuestionsByQName" class="com.onlineSurvey.action.ShowQuestionsByQNameAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="viewCourses" class="com.onlineSurvey.action.ViewCoursesAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="viewExportExcel" class="com.onlineSurvey.action.ViewExportExcelAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="checkCourseName" class="com.onlineSurvey.action.CheckCourseNameAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="checkPasswd" class="com.onlineSurvey.action.CheckPasswdAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showUsers" class="com.onlineSurvey.action.ShowUsersAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="getUserInfo" class="com.onlineSurvey.action.GetUserInfoAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showTeachers" class="com.onlineSurvey.action.ShowTeachersAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>	
+		<action name="showAdmins" class="com.onlineSurvey.action.ShowAdminsAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="checkAnswerByQId" class="com.onlineSurvey.action.CheckAnswerByQIdAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="checkAnswerOrNo" class="com.onlineSurvey.action.CheckAnswerOrNoAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showQuestionsAndAns" class="com.onlineSurvey.action.ShowQuestionsAndAnswerAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="getQNumlist" class="com.onlineSurvey.action.GetQNumlistAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showMyInfo" class="com.onlineSurvey.action.ShowMyInfoAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="modifyQuestionnaireName" class="com.onlineSurvey.action.ModifyQuestionnaireNameAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		
+	</package>
+	
+	<package name="iamge" extends="struts-default" namespace="/">
+		<action name="randPic" class="com.onlineSurvey.action.RandomAction">
+			<result type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+	</package> -->
+</struts>
+	
